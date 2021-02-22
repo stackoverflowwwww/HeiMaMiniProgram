@@ -1,0 +1,8 @@
+<view class="receive_address_row">
+  <!-- 因为空对象返回true, 因此对象address不能当作判断条件 -->
+  <view wx:if="{{!address.userName}}" class="address_btn">
+    <!-- button的plain代表按钮背景是否镂空 -->
+    <button type="primary" plain bindtap="handleChooseAddress">获取收获地址</button>
+  </view>
+  <view wx:else>{{address.userName}}</view>
+</view>

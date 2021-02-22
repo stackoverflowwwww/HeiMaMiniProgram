@@ -1,0 +1,102 @@
+page{
+  // 因为底部工具栏固定了，所以页面内容要调上一点，与工具栏同高
+  --btnToolHeight:90rpx;
+  padding-bottom: var(--btnToolHeight);
+}
+
+// 轮播图
+.detail_swiper {
+  swiper {
+    // vw与宽度有关
+    height: 65vw;
+    text-align: center;
+    image {
+      width: 60%;
+    }
+  }
+}
+
+
+// 价格与名称
+.goods_price{
+  color: var(--themeColor);
+  font-weight: bold;
+  padding: 15rpx;
+}
+.goods_name_row{
+  border-bottom: 5rpx solid #dedede;
+  padding: 10rpx 0;
+  display: flex;
+  .goods_name{
+    flex: 7;
+    color: black;
+    padding-right: 23rpx;
+     // 一整段都是用来展示多行省略的
+     display: -webkit-box;
+     overflow: hidden;
+     -webkit-box-orient: vertical;
+     -webkit-line-clamp:2;
+  }
+  .goods_collect{
+    flex: 2;
+    border-left: 4rpx solid #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
+// 商品信息
+.goods_info{
+  .goods_info_title{
+    font-size: 36rpx;
+    color: var(--themeColor);
+    font-weight: bold;
+    padding: 15rpx;
+  }
+}
+
+// 工具栏
+.btn_tool{
+  // 加顶部边框是为了能区别工具栏的范围
+  border-top: 1rpx solid #ccc;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: var(--btnToolHeight);
+  background-color: white;
+  display: flex;
+  .tool_item{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    button{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+    }
+  }
+  .btn_cart{
+    flex: 2;
+    background-color: #ffa500;
+    color: #fff;
+    font-size: 30rpx;
+    font-weight: 600;
+  }
+  .btn_buy{
+    flex: 2;
+    background-color: #eb4450;
+    color: #fff;
+    font-size: 30rpx;
+    font-weight: 600;
+  }
+}

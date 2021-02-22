@@ -1,0 +1,18 @@
+@import "./styles/iconfont.wxss";
+/* 在微信小程序中不支持通配符 */
+page,view,text,swiper,swiper-item,image,nav,navigator{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+page{
+  /* 定义主题颜色 */
+  --themeColor:#eb4450;
+  --searchInputHeight: 90rpx;
+  font-size: 28rpx;
+} 
+
+/* 图片宽度一般与父容器宽度相同 */
+image{
+  width: 100%;
+}

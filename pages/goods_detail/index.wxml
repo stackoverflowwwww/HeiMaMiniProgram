@@ -1,0 +1,57 @@
+<!-- 轮播图开始 -->
+<view class="detail_swiper">
+  <swiper autoplay="true" interval="2500" indicator-dots="true" circular="true">
+    <swiper-item wx:for="{{goodsObj.pics}}" wx:key="pics_id" bindtap="handlePreviewImg" data-index="{{index}}">
+      <navigator>
+        <image src="{{item.pics_mid}}" mode="widthFix"></image>
+      </navigator>
+    </swiper-item>
+  </swiper>
+</view>
+<!-- 轮播图结束 -->
+
+<view class="goods_price">￥{{goodsObj.goods_price}}</view>
+<view class="goods_name_row">
+  <view class="goods_name">{{goodsObj.goods_name}}</view>
+  <view class="goods_collect">
+    <text class="iconfont icon-shoucang"></text>
+    <view class="collect_text">收藏</view>
+  </view>
+</view>
+
+<!-- 图文信息 -->
+<view class="goods_info">
+  <view class="goods_info_title">图文详情</view>
+  <view class="goods_info_content">
+    <!-- 富文本渲染代码 -->
+    <rich-text nodes="{{goodsObj.goods_introduce}}"></rich-text>
+  </view>
+</view>
+
+
+<!-- 底部工具栏 -->
+<view class="btn_tool">
+  <view class="tool_item">
+    <view class="iconfont icon-kefu"></view>
+    <view>客服</view>
+    <!-- 增加button是因为不便于修改btn_tool的元素view为button，
+      因为button和view的基础样式有所不同，而此前已经写好了view的样式 -->
+    <button open-type="contact"></button>
+  </view>
+  <view class="tool_item">
+    <view class="iconfont icon-fenxiang"></view>
+    <view>分享</view>
+    <button open-type="share"></button>
+  </view>
+  <!-- navigator默认open-type为navigate，不支持跳转到tabbar -->
+  <navigator class="tool_item" url="/pages/cart/index" open-type="switchTab">
+    <view class="iconfont icon-qicheqianlian-"></view>
+    <view>购物车</view>
+  </navigator>
+  <view class="tool_item btn_cart" bindtap="handleCartAdd">
+    加入购物车
+  </view>
+  <view class="tool_item btn_buy">
+    立即购买
+  </view>
+</view>

@@ -1,0 +1,39 @@
+<view class="cates">
+  <SearchInput></SearchInput>
+  <view class="cates_container">
+    <!-- scroll-view组件要给父容器一个固定高度 -->
+
+    <!-- 左侧菜单 -->
+    <scroll-view class="left_menu" scroll-y>
+      <view class="menu_item {{index==currentIndex?'active':''}}" 
+      wx:for="{{leftMenuList}}" 
+      wx:key="*this"
+      bindtap="handleItemTap"
+      data-index="{{index}}">
+        {{item}}
+      </view>
+    </scroll-view>
+
+    <!-- 右侧商品内容 -->
+    <!-- 需要保证每次更新右端内容时setData都有设置scrollTop, 因为是根据setData进行中的值进行动态渲染的 -->
+    <scroll-view class="right_content" scroll-y scroll-top="{{scrollTop}}"> <!-- scroll-top在点击菜单不同选项时保证新的滚动条在顶端-->
+      <view class="goods_group" wx:for="{{rightContentList}}" wx:for-item="item1" wx:for-index="index1">
+        <view class="goods_title">
+          <text class="delimeter">/</text>
+          <text class="title">{{item1.cat_name}}</text> 
+          <text class="delimeter">/</text>
+        </view>
+        <view class="goods_list">
+          <navigator wx:for="{{item1.children}}" 
+          wx:for-item="item2" 
+          wx:for-index="index2" 
+          wx:key="cat_id"
+          url="/pages/goods_list/index?cid={{item2.cat_id}}">
+            <image src="{{item2.cat_icon}}" mode="widthFix"></image>
+            <view class="goods_name">{{item2.cat_name}}</view>
+          </navigator>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
