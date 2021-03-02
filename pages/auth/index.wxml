@@ -1,2 +1,2 @@
-<!--pages/auth/index.wxml-->
-<text>pages/auth/index.wxml</text>
+<!-- 授权页面用于获取用户的token值 -->
+<button type="primary" plain open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo">获取授权</button>

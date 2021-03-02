@@ -14,3 +14,46 @@ module.exports.chooseAddress = () => {
     });
   });
 };
+
+// 传入参数是一个对象，用{content}对其进行解构
+module.exports.showModel = ({content}) => {
+  return new Promise((resolve, reject) => {
+    wx.showModal({
+      title: '提示',
+      content: content,
+      success: (res) => {
+        resolve(res);
+      },
+      fail:(err)=>{
+        reject(err);
+      }
+    })
+  });
+}
+
+//用户登录的封装
+module.exports.login=()=>{
+  return new Promise((resolve,reject)=>{
+    wx.login({
+      timeout: 10000, //超时设置
+      success:(result)=>{
+        resolve(result);
+      },
+      fail:(err)=>{
+        reject(err);
+      }
+    })
+  });
+}
+
+
+//发起支付函数封装
+module.exports.requestPayment=(pay)=>{
+  return new Promise((resolve,reject)=>{
+    wx.requestPayment({
+      ...pay,
+      success:(res)=>{resolve(res);},
+      fail:(err)=>{reject(err);}
+    })
+  });
+}

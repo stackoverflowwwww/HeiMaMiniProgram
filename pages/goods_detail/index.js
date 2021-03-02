@@ -47,6 +47,7 @@ Page({
     if(index===-1){
       // 原始购物车不存在该商品
       this.goodsInfo.num=1;
+      this.goodsInfo.checked=true; //购物车选中状态
       cart.push(this.goodsInfo);
     }else{
       // 已存在该商品

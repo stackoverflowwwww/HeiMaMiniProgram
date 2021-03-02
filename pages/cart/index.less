@@ -1,8 +1,161 @@
-.receive_address_row{
-  .address_btn{
+page{
+  padding-bottom: 90rpx;
+}
+// 购物地址
+.receive_address_row {
+  .address_btn {
     padding: 20rpx;
-    button{
+
+    button {
       width: 60%;
     }
+  }
+
+  .user_info_row {
+    display: flex;
+    justify-content: space-between;
+    padding: 20rpx;
+
+    .user_info {
+      flex: 5;
+    }
+
+    .user_phone {
+      flex: 2;
+      text-align: right;
+    }
+  }
+}
+
+// 购物车内容
+.cart_content {
+  .cart_title {
+    padding: 20rpx;
+    border-width: 3rpx 0;
+    border-color: var(--themeColor);
+    color: var(--themeColor);
+    border-style: solid;
+    font-size: 36rpx;
+  }
+
+  .cart_main {
+    .cart_item {
+      padding: 10rpx;
+      border-bottom: 1rpx solid #ccc;
+      display: flex;
+
+      .cart_chk_wrap {
+        flex: 1;
+        //下面3段行样式为居中显示
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .cart_img_wrap {
+        flex: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 80%;
+        }
+      }
+
+      .cart_info_wrap {
+        flex: 4;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .goods_name {
+          // 一整段都是用来展示多行省略的
+          display: -webkit-box;
+          overflow: hidden;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+        }
+
+        .goods_price_wrap {
+          display: flex;
+          justify-content: space-between;
+          .goods_price {
+            color: var(--themeColor);
+            font-size: 34rpx;
+          }
+
+          .cart_num_tool {
+            display: flex;
+            --numToolLength:55rpx;
+            .num_edit {
+              width: var(--numToolLength);
+              height: var(--numToolLength);
+              line-height: var(--numToolLength);
+              text-align: center;
+              border: 1rpx solid #ccc;
+            }
+
+            .goods_num {
+              width: var(--numToolLength);
+              height: var(--numToolLength);
+              line-height: var(--numToolLength);
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// 底部工具栏
+.footer_tool {
+  border-top: 1rpx solid #ccc;
+  // 有定位的元素要设置宽度, 没有默认的全屏宽度
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  --footerHeight:90rpx;
+  height: var(--footerHeight);
+  display: flex;
+  .all_chk_wrap {
+    flex: 2;
+    //下面3段行样式为居中显示
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 10rpx;
+    align-items: center;
+  }
+
+  .total_price_wrap {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .total_price {
+      .total_price_text {
+        color: var(--themeColor);
+        font-size: 36rpx;
+      }
+      text-align: right;
+      padding-right: 10rpx;
+    }
+
+    .delivery {
+      text-align: right;
+      padding-right: 10rpx;
+    }
+  }
+
+  .order_pay_wrap {
+    flex: 3;
+    font-size: 36rpx;
+    background-color: var(--themeColor);
+    color: white;
+    line-height: var(--footerHeight);
+    text-align: center;
+
   }
 }
