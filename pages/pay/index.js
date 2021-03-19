@@ -43,10 +43,6 @@ Page({
       });
       return;
     }
-    //请求头
-    const header = {
-      Authorization: token
-    };
     //请求体
     const order_price = this.data.totalPrice;
     const consignee_addr = this.data.address.all;
@@ -67,14 +63,14 @@ Page({
       url: '/my/orders/create',
       method: 'POST',
       data: orderParams,
-      header: header
+      
     }).then((result) => {
       //result为订单数据
       order_number = result.order_number; //订单编号
       return request.request({ //发起预支付
         url: '/my/orders/req_unifiedorder',
         method: 'POST',
-        header,
+        
         data: {
           order_number
         }
@@ -83,7 +79,7 @@ Page({
       const {
         pay
       } = result;
-      return asyncWx.requestPayment(pay); //发起微信支付,在这一步会报错，因为发起支付
+      return asyncWx.requestPayment(pay); //发起微信支付,在这一步会报错，因为发起支付的
       //AppID是不在白名单上的，因此没有权限 "requestPayment:fail no permission"
     }).then((result) => {
       return request.request({ //支付成功后还要进行订单状态查询，确保支付订单状态为支
@@ -93,7 +89,7 @@ Page({
         data: {
           order_number
         },
-        header
+        
       });
     }).then((result) => {
       wx.showToast({
@@ -113,6 +109,7 @@ Page({
         title: '支付失败',
         icon: 'none',
         success: () => {
+          //因为没有创建支付的权限，所以只能在支付失败页面模仿业务逻辑
           //支付成功后要清除购物车中已支付商品
           let cart = wx.getStorageSync('cart');
           cart = cart.filter(v => !v.checked);

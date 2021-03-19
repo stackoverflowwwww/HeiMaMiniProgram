@@ -11,11 +11,11 @@
 <!-- 轮播图结束 -->
 
 <view class="goods_price">￥{{goodsObj.goods_price}}</view>
-<view class="goods_name_row">
+<view class="goods_name_row"> <!--商品名字与收藏-->
   <view class="goods_name">{{goodsObj.goods_name}}</view>
-  <view class="goods_collect">
-    <text class="iconfont icon-shoucang"></text>
-    <view class="collect_text">收藏</view>
+  <view class="goods_collect" bindtap="handleShouchangTap">
+    <text class="iconfont {{isCollect?'icon-shoucang1':'icon-shoucang'}} "></text>
+    <view class="collect_text" >收藏</view>
   </view>
 </view>
 

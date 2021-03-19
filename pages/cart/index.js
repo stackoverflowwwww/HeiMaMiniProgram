@@ -42,10 +42,12 @@ Page({
   onShow: function () {
     // onLoad只在页面加载时触发,而onShow在设置完地址回到购物车页面时也能触发
     const address = wx.getStorageSync('address');
+    if(address!=''){
     address.all = address.provinceName + address.cityName + address.countyName + address.detailInfo;
     this.setData({
       address
     });
+    }
     // 获取购物车数据
     const cart = wx.getStorageSync('cart') || [];
     this.setCart(cart);

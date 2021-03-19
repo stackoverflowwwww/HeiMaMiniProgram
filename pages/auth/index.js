@@ -40,7 +40,7 @@ Page({
           });
         })
         .then((result) => {
-          console.log(result); //返回值是null。因为该账号不是企业账号。且没有添加到该项目对应的白名单。因此无法从url:"/users/wxlogin"创建订单
+          // console.log(result); //返回值是null。因为该账号不是企业账号。且没有添加到该项目对应的白名单。因此无法从url:"/users/wxlogin"创建订单
           result = { //从黑马api里拿下来的例子 
             "user_id": 23,
             "user_email_code": null,
@@ -58,6 +58,7 @@ Page({
           const {
             token
           } = result;
+          console.log(token);
           wx.setStorageSync('token', token);
           //返回上一层
           wx.navigateBack({
