@@ -1,0 +1,120 @@
+page{
+  background-color: #edece8;
+}
+.user_info_wrap{ //用户信息
+  height: 45vh;
+  overflow: hidden;
+  background-color: var(--themeColor);
+  position: relative; //.user_login要绝对定位
+  .user_img_wrap{ //用户图像背景昵称等信息
+    position: relative; //.user_info要绝对定位
+    .user_bg{
+      height: 50vh;
+      filter: blur(10rpx); //高斯模糊
+    }
+    .user_info{
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%); //水平方向移动元素
+      top: 30%;
+      text-align: center;
+      .user_icon{
+        width: 150rpx;
+        height: 150rpx;
+        border-radius: 50%; 
+      }
+      .user_name{
+        color: white;
+        margin-top: 40rpx;
+      }
+    }
+  }
+  .user_login{ //登录按钮
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 40%;
+    color: greenyellow;
+    border: 1rpx solid currentColor;
+    border-radius: 10rpx;
+    padding: 30rpx;
+    font-size: 38rpx;
+  }
+}
+.user_content{ //商城信息
+  position: relative; //。user_content作用是提供.user_main绝对定位的参考
+  --backgroundColor:white;
+  --marginTop:30rpx;
+  --itemPadding:20rpx;
+  .user_main{
+    position: absolute;
+    padding-bottom: 100rpx; //方便查看全部信息
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    top:-40rpx;
+
+    .history_wrap{ //历史足迹
+      display: flex;
+      background-color: var(--backgroundColor);
+      padding: var(--itemPadding);
+      navigator{
+        flex: 1;
+        text-align: center;
+        .his_num{
+          color: var(--themeColor);
+        }
+      }
+    }
+
+    .orders_wrap{//订单
+      background-color: var(--backgroundColor);
+      margin-top: var(--marginTop);
+
+      .orders_title{ //"我的订单"标题
+        padding: var(--itemPadding);
+        border-bottom: 1rpx solid #ccc;
+      }
+
+      .order_content{ //订单内容
+        display: flex;
+        navigator{
+          flex: 1;
+          padding: var(--itemPadding);
+          text-align: center;
+          .iconfont{ //字体图标
+            color: var(--themeColor);
+            font-size: 40rpx;
+          }
+          
+        }
+      }
+    }
+
+    .address_wrap { //收货地址管理
+      padding: var(--itemPadding);
+      background-color: var(--backgroundColor);
+      margin-top: var(--marginTop);
+    }
+    
+    .app_info_wrap { //应用信息相关
+      background-color: var(--backgroundColor);
+      margin-top: var(--marginTop);
+      .app_info_item{
+        padding: var(--itemPadding);
+        border-bottom: 1rpx solid #ccc;
+      }
+      .app_info_contact{ //app_info_contact类为该元素独有，用于区别app_info_item，方便添加样式
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    
+    .recommend_wrap { // 推荐
+      background-color: var(--backgroundColor);
+      margin-top: var(--marginTop);
+      padding: var(--itemPadding);
+    }
+  }
+}
+
