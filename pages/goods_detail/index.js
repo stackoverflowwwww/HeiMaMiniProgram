@@ -131,7 +131,7 @@ Page({
       //由于上面的判断条件（初始与最终收藏状态有差别），所以缓存中一定没有该商品
         //添加一些属性，清除一些无关属性
         let goodsObj = this.data.goodsObj;
-        goodsObj.pic = goodsObj.pics[0];
+        goodsObj.goods_small_logo = goodsObj.pics[0].pics_sma;
         goodsObj.goods_id = this.goods_id;
         delete goodsObj.goods_introduce;
         delete goodsObj.pics;

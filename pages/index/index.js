@@ -19,6 +19,10 @@ Page({
     request.request({
       url: '/home/swiperdata',
     }).then((result)=>{
+          result.forEach(v=>{
+            //返回的导航链接中文件名错了，应该是index而不是main
+            v.navigator_url=v.navigator_url.replace(/main(?=\?goods_id=)/,"index");
+          });
           this.setData({
             swiperList:result
           });

@@ -1,1 +1,56 @@
-/* pages/collect/index.wxss */
+.collect_main {
+  background-color: #f3f4f6;
+
+  .collect_title {
+    //标题部分
+    padding: 40rpx 0;
+
+    .collect_tips {
+      padding: 15rpx;
+      border: 1rpx solid #ccc;
+      margin-left: 25rpx;
+      background-color: #fff;
+    }
+
+    .active {
+      //标题选中状态
+      color: var(--themeColor);
+      border-color: currentColor;
+    }
+  }
+
+  .collect_content {
+    .goods_item {
+      background-color: white;
+      border-bottom: 1px solid #ccc;
+      display: flex;
+
+      .goods_img_wrap {
+        padding: 10rpx;
+        flex: 2;
+
+        image {}
+      }
+
+      .goods_info_wrap {
+        flex: 5;
+        padding: 20rpx;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .goods_name {
+          //下面四行代码是设置多于两行就省略
+          display: -webkit-box;
+          overflow: hidden;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+        }
+
+        .goods_price {
+          color:var(--themeColor);
+          font-size: 32rpx;
+        }
+      }
+    }
+  }
+}

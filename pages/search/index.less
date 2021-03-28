@@ -1,0 +1,44 @@
+page {
+  background-color: #dedede;
+  padding: 20rpx;
+}
+
+.search_row {
+  //搜索框界面
+  --searchHeight: 60rpx;
+  height: var(--searchHeight);
+  display: flex;
+
+  input {
+    //输入框
+    flex: 4;
+    background-color: #fff;
+    height: 100%;
+    padding-left: 30rpx;
+    margin-right: 10rpx;
+  }
+
+  button {
+    //取消按钮
+    flex: 1;
+    height: 100%;
+    padding: 0;
+    text-align: center;
+    line-height: var(--searchHeight);
+    font-size: 26rpx;
+  }
+}
+
+.search_content {
+  margin-top: 30rpx;
+  .search_item {
+    background-color: #fff;
+    font-size: 26rpx;
+    padding: 15rpx 10rpx;
+    border-bottom: 1rpx solid #ccc;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}

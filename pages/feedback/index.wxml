@@ -1,2 +1,33 @@
-<!--pages/feedback/index.wxml-->
-<text>pages/feedback/index.wxml</text>
+<Tabs tabs="{{tabs}}" bindtabsItemChange="handleTabsItemChange">
+  <!--引入Tabs组件-->
+  <view class="fb_main">
+    <!--插槽内容的容器-->
+    <view class="fb_title">问题的种类</view>
+    <view class="fb_tips">
+      <!--问题种类-->
+      <text>功能建议</text>
+      <text>购买遇到问题</text>
+      <text>性能问题</text>
+      <text>其他</text>
+    </view>
+    <view class="fb_content">
+      <!--输入部分-->
+      <textarea placeholder="请输入您的问题" value="{{textVal}}" bindinput="handleTextInput"></textarea>
+      <view class="fb_tool">
+        <!--容纳“添加图片”按钮和图片插件-->
+        <view class="btn_wrap">
+          <!--添加图片的按钮-->
+          <button bindtap="handleChooseImg">+</button>
+        </view>
+        <view class="up_img_item" wx:for="{{chooseImgs}}" wx:key="*this"><Upimg src="{{item}}" bindRemoveImg="handleRemoveImg"></Upimg>  <!--上传图片的插件--></view>
+      </view>
+    </view>
+    <view class="form_btn_wrap">
+      <!--提交按钮-->
+      <button bindtap="handleFormSubmit">
+        <icon type="success_no_circle" color="white"></icon>
+        提交
+      </button>
+    </view>
+  </view>
+</Tabs>
